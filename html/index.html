@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.12.0/html2pdf.bundle.min.js" integrity="sha512-D25Z8/1q2z65ZpJ3NzY6XiPZfwjhbv34OTQHDIZd+KPK+uWCovGt+fMkSzW8ArzCMFUgZt6Cdu7qoXNuy6a2GA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
     <title>Ciclo</title>
 </head>
 <body>
@@ -12,7 +17,7 @@
 
         <form action="">
             <div class="materias">
-              <label>Nome da matéria</label>
+              <h2>Nome da matéria</h2>
               <input type="text" id="nome-materia">
 
               <h2>Selecione seu nível</h2>
@@ -52,10 +57,18 @@
                 <option value="6">6 dias</option>
                 <option value="7">7 dias</option>
               </select> <br>
-              <input type="button" value="mostrar ciclo" onclick="coletarMaterias()">
-              <input type="button" value="gerar PDF">
+              <input type="button" value="gerar ciclo" onclick="coletarMaterias()">
+              <input type="button" value="gerar PDF" onclick="criarPDF()">
             </div>
         </form>
+
+        <footer>
+            <p>
+              Desenvolvido por 
+              <a href="https://www.linkedin.com/in/carlos-eduardo-a1b547330/" target="_blank">LinkedIn</a> |
+              <a href="https://github.com/Eduardo4456" target="_blank">GitHub</a>
+            </p>
+        </footer>
   </div>
 
     <script src="/script/script.js"></script>

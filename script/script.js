@@ -61,11 +61,29 @@ function coletarMaterias() {
     console.log("Resultado do Ciclo:", ciclo);
 
     // Mostrando no navegador
-    let resultadoHTML = "<h2>Distribuição de Horas</h2><ul>";
+    let resultadoHTML = '<h2>Distribuição de Horas</h2><ul id="conteudo">';
     ciclo.forEach(m => {
         resultadoHTML += `<li>${m.nome} (${m.nivel}) → ${m.horas}h</li>`;
     });
-    resultadoHTML += "</ul>";
+    resultadoHTML += '</ul>';
 
     document.getElementById("container").insertAdjacentHTML("beforeend", resultadoHTML);
+}
+
+function criarPDF() {
+    const conteudo = document.querySelector("#conteudo")
+
+    if (!conteudo) {
+        alert("Gere o ciclo antes de criar o PDF!");
+        return;
+    }
+
+    const opicoes = {
+        margin: [10, 10, 10, 10],
+        filename: "ciclo.pdf",
+        html2canvas: {scale: 2},
+        jsPDF: {unit: "mm", format: "a4", orientation: "portrait"}
+    }
+
+    html2pdf().set(opicoes).from(conteudo).save()
 }
