@@ -21,7 +21,8 @@ Este projeto foi inspirado no vídeo do canal [Matemática em Evidência](https:
 1. Clone este repositório ou faça o download do código  
 2. Abra o arquivo `index.html` no navegador  
 3. Insira suas matérias e níveis de dificuldade  
-4. Gere seu ciclo de estudos  
+4. Gere seu ciclo de estudos
+5. Exporte em PDF quando desejar 
 
 ---
 
@@ -30,5 +31,4 @@ Este projeto foi inspirado no vídeo do canal [Matemática em Evidência](https:
 - Armazenamento de dados no navegador (LocalStorage)  
 - Opção de personalizar o tempo de cada sessão de estudo  
 - Temas escuro/claro  
-- Criação de PDFs
 ---
