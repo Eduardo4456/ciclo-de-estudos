@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input[type="text"] {
+    padding: 8px;
+    border: 0.5px solid #ccc;
+    border-radius: 6px;
+    margin: 5px 0;
+    width: 20%;
+}
+
+input[type="radio"] {
+    accent-color: #0a3720; /* muda a cor da bolinha */
+}
+
+input[type="button"] {
+    background-color: #0a3720;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    margin-top: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+input[type="button"]:hover {
+    background-color: #28664b;
+}
+
+.materias {
+    background-color: #bdd6d2;
+    padding: 2%;
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+.titulo {
+    align-items: center;
+    text-align: center;
+}
+
+ul {
+    background-color: #bdd6d2;
+    border-radius: 4px;
+    padding: 2% 4%;
+}

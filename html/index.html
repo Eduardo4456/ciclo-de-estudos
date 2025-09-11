@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/style.css">
+    <title>Ciclo</title>
+</head>
+<body>
+    <div id="container">
+        <h1 class="titulo">Ciclo de Estudos</h1>
+
+        <form action="">
+            <div class="materias">
+              <label>Nome da matéria</label>
+              <input type="text" id="nome-materia">
+
+              <h2>Selecione seu nível</h2>
+              <input type="radio" name="nivel" value="pessimo">
+              <label>pessimo</label>
+
+              <input type="radio" name="nivel" value="ruim">
+              <label>ruim</label>
+
+              <input type="radio" name="nivel" value="mediano">
+              <label>mediano</label>
+
+              <input type="radio" name="nivel" value="bom">
+              <label>bom</label>
+
+              <input type="radio" name="nivel" value="otimo" checked>
+              <label>otimo</label>
+
+              <br><br>
+              <input type="button" value="Adicionar Matéria" onclick="adicionarMateria()">
+            </div>
+            
+            <h2>Materias selecionadas</h2>
+            <ul id="lista-materias"></ul>
+
+            <div class="info">
+              <hr>
+              <label for="horas">Quantas horas pretende estudar por dia?</label>
+              <input type="text" id="horas">
+              <label for="quantidade_dias">Quantos dias pretende estudar?</label>
+              <select id="quantidade_dias">
+                <option value="1">1 dia</option>
+                <option value="2">2 dias</option>
+                <option value="3">3 dias</option>
+                <option value="4">4 dias</option>
+                <option value="5">5 dias</option>
+                <option value="6">6 dias</option>
+                <option value="7">7 dias</option>
+              </select> <br>
+              <input type="button" value="mostrar ciclo" onclick="coletarMaterias()">
+              <input type="button" value="gerar PDF">
+            </div>
+        </form>
+  </div>
+
+    <script src="/script/script.js"></script>
+</body>
+</html>
