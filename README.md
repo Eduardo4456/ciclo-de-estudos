@@ -18,10 +18,9 @@ Este projeto foi inspirado no vídeo do canal [Matemática em Evidência](https:
 
 ## 📦 Como usar
 
-1. Clone este repositório ou faça o download do código  
-2. Abra o arquivo `index.html` no navegador  
-3. Insira suas matérias e níveis de dificuldade  
-4. Gere seu ciclo de estudos
+1. Acesse https://cicloestudos.netlify.app/
+2. Preencha as informações pedidas 
+3. Gere seu ciclo de estudos
 5. Exporte em PDF quando desejar 
 
 ---
