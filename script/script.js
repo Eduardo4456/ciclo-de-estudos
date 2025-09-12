@@ -5,7 +5,6 @@ function adicionarMateria() {
   const nivel = document.querySelector('input[name="nivel"]:checked')?.value || "";
 
   if (nome !== "") {
-        // salva o nome e o nível textual (ex: "pessimo")
         materias.push({ nome: nome, nivel: nivel });
 
         // adiciona na lista visível
