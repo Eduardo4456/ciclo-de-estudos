@@ -56,17 +56,16 @@ function coletarMaterias() {
         return;
     }
 
+    document.getElementById("ciclo").innerHTML = "";
+
     const ciclo = montarCiclo(materias, horas, dias);
     console.log("Resultado do Ciclo:", ciclo);
 
-    // Mostrando no navegador
-    let resultadoHTML = '<h2>Distribuição de Horas</h2><ul id="conteudo">';
     ciclo.forEach(m => {
-        resultadoHTML += `<li>${m.nome} (${m.nivel}) → ${m.horas}h</li>`;
+        const li = document.createElement("li");
+        li.textContent = `${m.nome} (${m.nivel}) → ${m.horas}h`;
+        document.getElementById("ciclo").appendChild(li);
     });
-    resultadoHTML += '</ul>';
-
-    document.getElementById("container").insertAdjacentHTML("beforeend", resultadoHTML);
 }
 
 function criarPDF() {
