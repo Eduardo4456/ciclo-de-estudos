@@ -47,6 +47,7 @@ ul {
     background-color: #bdd6d2;
     border-radius: 4px;
     padding: 2% 4%;
+    list-style-type: none;
 }
 
 footer {
@@ -70,4 +71,19 @@ footer a {
 footer a:hover {
   text-decoration: underline;
   color: #28664b;
+}
+
+@media (max-width: 600px) {
+    body {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    button {
+        width: 100%;
+    }
 }

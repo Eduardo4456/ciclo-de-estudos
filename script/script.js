@@ -69,7 +69,7 @@ function coletarMaterias() {
 }
 
 function criarPDF() {
-    const conteudo = document.querySelector("#conteudo")
+    const conteudo = document.querySelector("#ciclo")
 
     if (!conteudo) {
         alert("Gere o ciclo antes de criar o PDF!");
