@@ -3,76 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.12.0/html2pdf.bundle.min.js" integrity="sha512-D25Z8/1q2z65ZpJ3NzY6XiPZfwjhbv34OTQHDIZd+KPK+uWCovGt+fMkSzW8ArzCMFUgZt6Cdu7qoXNuy6a2GA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Ciclo de Estudos | Organizador Inteligente</title>
+    
+    <!-- Bibliotecas Externas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.12.0/html2pdf.bundle.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <title>Ciclo</title>
+    <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
     <div id="container">
         <h1 class="titulo">Ciclo de Estudos</h1>
 
-        <form action="">
-            <div class="materias">
-              <h2>Nome da matéria</h2>
-              <input type="text" id="nome-materia">
+        <div class="card-section">
+            <div class="input-group">
+                <h2>Nome da matéria</h2>
+                <input type="text" id="nome-materia" placeholder="Ex: Matemática, Direito...">
+            </div>
 
-              <h2>Selecione seu nível</h2>
-              <input type="radio" name="nivel" value="pessimo">
-              <label>pessimo</label>
+            <div class="input-group">
+                <h2>Qual seu nível de conhecimento?</h2>
+                <div class="radio-container">
+                    <label class="radio-item"><input type="radio" name="nivel" value="1"> Péssimo</label>
+                    <label class="radio-item"><input type="radio" name="nivel" value="2"> Ruim</label>
+                    <label class="radio-item"><input type="radio" name="nivel" value="3"> Mediano</label>
+                    <label class="radio-item"><input type="radio" name="nivel" value="4"> Bom</label>
+                    <label class="radio-item"><input type="radio" name="nivel" value="5" checked> Ótimo</label>
+                </div>
+            </div>
 
-              <input type="radio" name="nivel" value="ruim">
-              <label>ruim</label>
+            <button type="button" class="btn" onclick="adicionarMateria()" id="btn-add">
+                Adicionar Matéria
+            </button>
+        </div>
+        
+        <div id="section-lista" style="display: none;">
+            <h2>Matérias Adicionadas</h2>
+            <ul id="lista-materias"></ul>
+        </div>
 
-              <input type="radio" name="nivel" value="mediano">
-              <label>mediano</label>
-
-              <input type="radio" name="nivel" value="bom">
-              <label>bom</label>
-
-              <input type="radio" name="nivel" value="otimo" checked>
-              <label>otimo</label>
-
-              <br><br>
-              <input type="button" value="Adicionar Matéria" onclick="adicionarMateria()">
+        <div class="card-section" style="margin-top: 30px;">
+            <div class="input-group">
+                <label for="horas"><b>Horas de estudo por dia:</b></label>
+                <input type="text" id="horas" placeholder="Ex: 4" style="margin-top: 8px;">
             </div>
             
-            <h2>Materias selecionadas</h2>
-            <ul id="lista-materias"></ul>
-
-            <div class="info">
-              <label for="horas">Quantas horas pretende estudar por dia?</label>
-              <input type="text" id="horas"><br><br>
-              <label for="quantidade_dias">Quantos dias pretende estudar por semana?</label>
-              <select id="quantidade_dias">
-                <option value="1">1 dia</option>
-                <option value="2">2 dias</option>
-                <option value="3">3 dias</option>
-                <option value="4">4 dias</option>
-                <option value="5">5 dias</option>
-                <option value="6">6 dias</option>
-                <option value="7">7 dias</option>
-              </select> <br>
-              <input type="button" value="gerar ciclo" onclick="coletarMaterias()">
-              <input type="button" value="gerar PDF" onclick="criarPDF()">
+            <div class="input-group">
+                <label for="quantidade_dias"><b>Dias por semana:</b></label>
+                <select id="quantidade_dias" style="margin-top: 8px;">
+                    <option value="1">1 dia</option>
+                    <option value="2">2 dias</option>
+                    <option value="3">3 dias</option>
+                    <option value="4">4 dias</option>
+                    <option value="5">5 dias</option>
+                    <option value="6">6 dias</option>
+                    <option value="7" selected>7 dias (Semana toda)</option>
+                </select>
             </div>
-        </form>
 
-        <h2>Distribuição de Horas</h2>
-        <ul id="ciclo"></ul>
+            <button type="button" class="btn" onclick="gerarCiclo()">Gerar Ciclo Inteligente</button>
+            <button type="button" class="btn btn-pdf" onclick="criarPDF()">Salvar em PDF</button>
+        </div>
+
+        <div id="resultado-ciclo" style="display: none;">
+            <h2>Seu Ciclo Sugerido</h2>
+            <p style="font-size: 0.9rem; margin-bottom: 10px; color: #666;">*Pesos calculados com base na sua dificuldade.</p>
+            <ul id="ciclo"></ul>
+        </div>
 
         <footer>
-            <p>
-              Desenvolvido por 
-              <a href="https://www.linkedin.com/in/carlos-eduardo-a1b547330/" target="_blank">LinkedIn</a> |
-              <a href="https://github.com/Eduardo4456" target="_blank">GitHub</a>
+            <p>Desenvolvido por Carlos Eduardo
+                <a href="https://www.linkedin.com/in/carlos-eduardo-a1b547330/" target="_blank">LinkedIn</a> | 
+                <a href="https://github.com/Eduardo4456" target="_blank">GitHub</a>
             </p>
         </footer>
-  </div>
+    </div>
 
-    <script src="/script/script.js"></script>
+    <script src="script/script.js"></script>
 </body>
 </html>

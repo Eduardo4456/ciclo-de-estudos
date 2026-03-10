@@ -1,89 +1,218 @@
+:root {
+    --primary: #0a3720;
+    --primary-light: #28664b;
+    --secondary: #bdd6d2;
+    --bg: #f4f7f6;
+    --text: #002711;
+    --white: #ffffff;
+    --danger: #ae2d2d;
+    --warning: #d97706;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: "DM Sans", sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 20px;
     display: flex;
     justify-content: center;
-    color: #002711;
 }
 
-input[type="text"] {
-    padding: 8px;
-    border: 0.5px solid #ccc;
-    border-radius: 6px;
-    width: 20%;
-}
-
-input[type="radio"] {
-    accent-color: #0a3720; /* muda a cor da bolinha */
-}
-
-input[type="button"] {
-    background-color: #0a3720;
-    color: white;
-    border: none;
-    padding: 10px 16px;
-    margin-top: 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-input[type="button"]:hover {
-    background-color: #28664b;
-}
-
-.materias {
-    background-color: #bdd6d2;
-    padding: 2%;
-    border-radius: 4px;
-    margin-top: 15px;
+#container {
+    width: 100%;
+    max-width: 800px;
+    background: var(--white);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
 }
 
 .titulo {
-    align-items: center;
     text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--primary);
+    font-weight: 700;
 }
 
-ul {
-    background-color: #bdd6d2;
-    border-radius: 4px;
-    padding: 2% 4%;
-    list-style-type: none;
+h2 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    color: var(--primary);
+}
+
+/* Seções de Card */
+.card-section {
+    background-color: var(--secondary);
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Inputs e Formulários */
+.input-group {
+    margin-bottom: 20px;
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 12px;
+    border: 1.5px solid #a8bcba;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: var(--white);
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus {
+    border-color: var(--primary-light);
+}
+
+/* Níveis de rádio personalizados */
+.radio-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.radio-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.5);
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+.radio-item:hover {
+    background: var(--white);
+}
+
+input[type="radio"] {
+    accent-color: var(--primary);
+    transform: scale(1.2);
+}
+
+/* Botões */
+.btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(10, 55, 32, 0.2);
+}
+
+.btn-pdf {
+    background-color: var(--warning);
+    margin-top: 10px;
+}
+
+.btn-pdf:hover {
+    background-color: #b45309;
+}
+
+/* Lista de Matérias */
+#lista-materias, #ciclo {
+    list-style: none;
+    margin-top: 15px;
+    padding: 0;
+}
+
+.item-materia {
+    background: var(--white);
+    margin-bottom: 10px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    animation: fadeIn 0.3s ease;
+}
+
+.materia-info b {
+    color: var(--primary);
+    text-transform: capitalize;
+}
+
+.materia-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-sm {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-edit { background: #e2e8f0; color: var(--primary); }
+.btn-del { background: #fee2e2; color: var(--danger); }
+
+/* Ciclo Gerado */
+.ciclo-item {
+    background: var(--primary);
+    color: var(--white);
+    padding: 15px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
 }
 
 footer {
-  margin-top: 40px;
-  padding: 15px;
-  text-align: center;
-  color: #fff;
-  border-radius: 8px;
-}
-
-footer p {
-    color: #002711;;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    text-align: center;
+    font-size: 0.9rem;
 }
 
 footer a {
-  color: #28664b; /* amarelo destaque */
-  text-decoration: none;
-  font-weight: bold;
+    color: var(--primary-light);
+    text-decoration: none;
+    font-weight: bold;
 }
 
-footer a:hover {
-  text-decoration: underline;
-  color: #28664b;
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
+/* Responsividade */
 @media (max-width: 600px) {
-    body {
-        text-align: center;
-    }
-
-    h1 {
-        font-size: 1.5rem;
-        text-align: center;
-    }
-
-    button {
-        width: 100%;
-    }
+    #container { padding: 20px; }
+    .radio-container { grid-template-columns: 1fr 1fr; }
+    .item-materia { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .materia-actions { align-self: flex-end; }
 }
